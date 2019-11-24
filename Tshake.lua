@@ -2880,10 +2880,6 @@ tsX000(apmd[2],msg,'☑┇ تم تنزيله من مطورين البوت')
 return false 
 end
 ------------------------------------------------------------------------
-if text == 'تحديث' then
-dofile('Tshake.lua')  
-send(msg.chat_id_, msg.id_, 1, '☑┇تم التحديث', 1, 'md')
-end
 if text == ("تحديث السورس") then
 send(msg.chat_id_, msg.id_, 1, '☑┇تم التحديث', 1, 'md')
 os.execute('rm -rf ./libs/utils.lua')
