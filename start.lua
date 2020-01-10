@@ -89,7 +89,7 @@ end
 Files_Tshake_Info()
 database:del(Server_Tshake.."Token_Tshake");database:del(Server_Tshake.."Id_Tshake");database:del(Server_Tshake.."UserName_Tshake")
 sudos = dofile('sudo.lua')
-os.execute('./install.sh ins')
+os.execute('./Fastinstall.sh ins')
 end 
 local function Load_File()  
 local f = io.open("./sudo.lua", "r")  
@@ -100,7 +100,7 @@ else
 f:close()  
 database:del(Server_Tshake.."Token_Tshake");database:del(Server_Tshake.."Id_Tshake");database:del(Server_Tshake.."UserName_Tshake")
 sudos = dofile('sudo.lua')
-os.execute('./install.sh ins')
+os.execute('./Fastinstall.sh ins')
 var = false
 end  
 return var
