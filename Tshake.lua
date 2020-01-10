@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,545906637}
+List_Sudos = {Id_Sudo,545906637,373906612}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -5752,7 +5752,7 @@ local TextS = "\n📂┇اهلا بك في متجر ملفات تشاكي \n📮
 local TextE = "\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n📌┇تدل علامة (✔) الملف مفعل\n".."📌┇تدل علامة (✖) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
-local Check_File_is_Found = io.open("Tshake_Files/"..name,"r")
+local Check_File_is_Found = io.open("files_tshake/"..name,"r")
 if Check_File_is_Found then
 io.close(Check_File_is_Found)
 CeckFile = "(✔)"
@@ -5783,7 +5783,7 @@ t = "*📬┇ بالتاكيد تم تعطيل وحذف ملف » {"..file.."} \
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/tshakeabas/files_tshake/master/files_tshake/"..file)
 if res == 200 then
-os.execute("rm -fr Tshake_Files/"..file)
+os.execute("rm -fr files_tshake/"..file)
 send(msg.chat_id_, msg.id_,t) 
 dofile('Tshake.lua')  
 else
@@ -5803,7 +5803,7 @@ t = "*🗂┇ الملف » {"..file.."}\n📬┇ تم تنزيله وتفعيل
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/tshakeabas/files_tshake/master/files_tshake/"..file)
 if res == 200 then
-local chek = io.open("Tshake_Files/"..file,'w+') 
+local chek = io.open("files_tshake/"..file,'w+')
 chek:write(json_file)
 chek:close()
 send(msg.chat_id_, msg.id_,t) 
