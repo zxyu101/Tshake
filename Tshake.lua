@@ -4926,7 +4926,7 @@ local NumMsg = database:get(bot_id..'Tshake:messageUser'..msg.chat_id_..':'..msg
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'Tshake:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Num_Games = database:get(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..msg.sender_user_id_) or 0
+local Num_Games = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Tshake:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (taha.total_count_ or 0)
 local Texting = {
@@ -4961,6 +4961,16 @@ send(msg.chat_id_, msg.id_,'🎇┇ليس لديك صوره \n'..'\n*💳┇اي
 end
 else
 if get_id then
+local get_id = get_id:gsub('#AddMem',Add_Mem) 
+local get_id = get_id:gsub('#id',Id) 
+local get_id = get_id:gsub('#username',UserName_User) 
+local get_id = get_id:gsub('#msgs',NumMsg) 
+local get_id = get_id:gsub('#edit',message_edit) 
+local get_id = get_id:gsub('#stast',Status_Gps) 
+local get_id = get_id:gsub('#auto',TotalMsg) 
+local get_id = get_id:gsub('#Description',Description) 
+local get_id = get_id:gsub('#game',Num_Games) 
+local get_id = get_id:gsub('#photos',Total_Photp) 
 send(msg.chat_id_, msg.id_,get_id) 
 else
 send(msg.chat_id_, msg.id_,'\n*💳┇ايديك ~⪼ '..Id..'\n🎫┇معرفك ~⪼* ['..UserName_User..']*\n👨‍✈️┇رتبتك ~⪼ '..Status_Gps..'\n📨┇رسائلك ~⪼ '..NumMsg..'\n📧┇السحكات ~⪼ '..message_edit..' \n⌨️┇تتفاعلك ~⪼ '..TotalMsg..'\n💎┇ مجوهراتك ~⪼ '..Num_Games..'*') 
@@ -6675,7 +6685,7 @@ DeleteMessage(msg.chat_id_, {[0] = msg.id_})
 return false  
 end
 --------------------------------------------------------------------------------------------------------------
-if tonumber(msg.sender_user_id_) == tonumber(bot_id) then  
+if tonumber(msg.sender_user_id_) ~= tonumber(bot_id) then  
 if msg.sender_user_id_ and Ban_Groups(msg.chat_id_,msg.sender_user_id_) then 
 Kick_Group(msg.chat_id_,msg.sender_user_id_) 
 DeleteMessage(msg.chat_id_, {[0] = msg.id_}) 
@@ -6698,6 +6708,7 @@ if msg.content_ and msg.content_.members_ and msg.content_.members_[0] and msg.c
 Kick_Group(msg.chat_id_,msg.content_.members_[0].id_) 
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
 end 
+end
 ------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatDeletePhoto" or msg.content_.ID == "MessageChatChangePhoto" or msg.content_.ID == "MessagePinMessage" or msg.content_.ID == "MessageChatJoinByLink" or msg.content_.ID == "MessageChatAddMembers" or msg.content_.ID == "MessageChatChangeTitle" or msg.content_.ID == "MessageChatDeleteMember" then   
 if database:get(bot_id.."Tshake:Lock:tagservr"..msg.chat_id_) then  
@@ -6705,7 +6716,6 @@ DeleteMessage(msg.chat_id_,{[0] = msg.id_})
 return false
 end    
 end   
-end
 ------------------------------------------------------------------------
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
