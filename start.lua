@@ -39,6 +39,10 @@ print("\27[1;34m\n»» Send Your UserName Sudo : \27[m")
 local UserName = io.read():gsub('@','')
 if UserName ~= '' then
 local Get_Info = http.request("http://teamstorm.tk/GetUser/?id="..UserName)
+if Get_Info:match('Is_Spam') then
+io.write('\n\27[1;31m»» Sorry The server is Spsm \nتم حظر السيرفر لمدة 5 دقايق بسبب التكرار\n\27[0;39;49m')
+return false
+end
 local Json = JSON:decode(Get_Info)
 if Json.Info == false then
 io.write('\n\27[1;31m»» Sorry The UserName is not Correct \n\27[0;39;49m')
