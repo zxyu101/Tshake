@@ -3994,7 +3994,7 @@ if database:get(bot_id.."Tshake:Set:On"..msg.sender_user_id_..":"..msg.chat_id_)
 send(msg.chat_id_, msg.id_,"📌┇تم ازالة الرد من قائمه ردود المطور")
 list = {"Add:Rd:Sudo:Audio","Add:Rd:Sudo:File","Add:Rd:Sudo:Video","Add:Rd:Sudo:Photo","Add:Rd:Sudo:Text","Add:Rd:Sudo:stekr","Add:Rd:Sudo:vico","Add:Rd:Sudo:Gif"}
 for k,v in pairs(list) do
-database:del(bot_id..v..text)
+database:del(bot_id..'Tshake:'..v..text)
 end
 database:del(bot_id.."Tshake:Set:On"..msg.sender_user_id_..":"..msg.chat_id_)
 database:srem(bot_id.."Tshake:List:Rd:Sudo", text)
@@ -4002,7 +4002,7 @@ return false
 end
 end
 
-if text then
+if text and not database:get(bot_id.."Tshake:Reply:Sudo"..msg.chat_id_) then
 local anemi = database:get(bot_id.."Tshake:Add:Rd:Sudo:Gif"..text)   
 local veico = database:get(bot_id.."Tshake:Add:Rd:Sudo:vico"..text)   
 local stekr = database:get(bot_id.."Tshake:Add:Rd:Sudo:stekr"..text)     
@@ -4935,7 +4935,7 @@ local Texting = {
 "وفالله 😔💘",
 "كشخه برب 😉💘",
 "دغيره شبي هذ 😒",
-"عمري الحلوين 🙈💘",
+"عمري الحلوين ??💘",
 }
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Tshake:Klesh:Id:Bot"..msg.chat_id_)
@@ -6772,7 +6772,7 @@ if NewCmmd then
 database:del(bot_id.."Tshake:Set:Cmd:Group:New1"..msg.chat_id_..":"..text)
 database:del(bot_id.."Tshake:Set:Cmd:Group:New"..msg.chat_id_)
 database:srem(bot_id.."Tshake:List:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"🔰┇تم ازالة الامر من المجموعه")  
+send(msg.chat_id_, msg.id_,"??┇تم ازالة الامر من المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"🔰┇لا يوجد امر بهاذا الاسم تاكد من الامر واعد المحاوله")  
 end
