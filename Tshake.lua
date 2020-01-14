@@ -3825,6 +3825,7 @@ return false
 end
 end
 if text and not database:get(bot_id.."Tshake:Reply:Manager"..msg.chat_id_) then
+if not database:sismember(bot_id..'Tshake:Spam:Group'..msg.sender_user_id_,text) then
 local anemi = database:get(bot_id.."Tshake:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
 local veico = database:get(bot_id.."Tshake:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
 local stekr = database:get(bot_id.."Tshake:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
@@ -3846,37 +3847,38 @@ local Text = Text:gsub('#edit',message_edit)
 local Text = Text:gsub('#msgs',NumMsg)
 local Text = Text:gsub('#stast',Status_Gps)
 send(msg.chat_id_, msg.id_, Text)
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end,nil)
 end
 if stekr then 
 sendSticker(msg.chat_id_,msg.id_,stekr)
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end
 if veico then 
 sendVoice(msg.chat_id_, msg.id_,veico,"")
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end
 if video then 
 sendVideo(msg.chat_id_, msg.id_,video,"")
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end
 if anemi then 
 sendAnimation(msg.chat_id_, msg.id_,anemi,"")   
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end
 if document then
 sendDocument(msg.chat_id_, msg.id_, document)   
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end  
 if audio then
 sendAudio(msg.chat_id_,msg.id_,audio)  
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end
 if photo then
 sendPhoto(msg.chat_id_,msg.id_,photo,photo_caption)
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end  
+end
 end
 ------------------------------------------------------------------------
 if text == ("مسح ردود المطور") and DevTshake(msg) then 
@@ -4003,6 +4005,7 @@ end
 end
 
 if text and not database:get(bot_id.."Tshake:Reply:Sudo"..msg.chat_id_) then
+if not database:sismember(bot_id..'Tshake:Spam:Group'..msg.sender_user_id_,text) then
 local anemi = database:get(bot_id.."Tshake:Add:Rd:Sudo:Gif"..text)   
 local veico = database:get(bot_id.."Tshake:Add:Rd:Sudo:vico"..text)   
 local stekr = database:get(bot_id.."Tshake:Add:Rd:Sudo:stekr"..text)     
@@ -4025,38 +4028,54 @@ local Text = Text:gsub('#edit',message_edit)
 local Text = Text:gsub('#msgs',NumMsg)
 local Text = Text:gsub('#stast',Status_Gps)
 send(msg.chat_id_, msg.id_,Text)
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end,nil)
 end
 if stekr then 
 sendSticker(msg.chat_id_,msg.id_,stekr) 
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end
 if veico then 
 sendVoice(msg.chat_id_, msg.id_,veico,"")
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end
 if video then 
 sendVideo(msg.chat_id_, msg.id_,video,"")
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end
 if anemi then 
 sendAnimation(msg.chat_id_, msg.id_,anemi,"")   
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end
 if document then
 sendDocument(msg.chat_id_, msg.id_, document)     
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end  
 if audio then
 sendAudio(msg.chat_id_,msg.id_,audio)  
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end
 if photo then
 sendPhoto(msg.chat_id_,msg.id_,photo,"")
-database:sadd(bot_id.."Tshake:Spam:Texting"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 end  
 end
+end
+if text == 'طرد المحذوفين' or text == 'مسح المحذوفين' then  
+if Addictive(msg) then    
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),offset_ = 0,limit_ = 1000}, function(arg,del)
+for k, v in pairs(del.members_) do
+tdcli_function({ID = "GetUser",user_id_ = v.user_id_},function(b,data) 
+if data.first_name_ == false then
+Kick_Group(msg.chat_id_, data.id_)
+end
+end,nil)
+end
+send(msg.chat_id_, msg.id_,'☑┇تم طرد الحسابات المحذوفه')
+end,nil)
+end
+end
+
 if text == "تفعيل ردود المدير" and Owner(msg) then   
 database:del(bot_id.."Tshake:Reply:Manager"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"📛┇تم تفعيل ردود المدير") 
@@ -4098,7 +4117,7 @@ send(msg.chat_id_, msg.id_,"\n🔖┇تم تنزيل الشخص من الرتب 
 else
 send(msg.chat_id_, msg.id_,"\n🚸┇ليس لديه رتب حتى استطيع تنزيله \n")
 end
-if tonumber(SUDO) == tonumber(msg.sender_user_id_) then
+if tonumber(Id_Sudo) == tonumber(msg.sender_user_id_) then
 database:srem(bot_id.."Tshake:Sudo:User", result.sender_user_id_)
 database:srem(bot_id.."Tshake:Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
 database:srem(bot_id.."Tshake:Constructor"..msg.chat_id_, result.sender_user_id_)
@@ -4914,6 +4933,8 @@ send(msg.chat_id_, msg.id_,'📌┇تم تعين الايدي')
 end
 
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'Tshake:Lock:ID:Bot'..msg.chat_id_) then
+if not database:sismember(bot_id..'Tshake:Spam:Group'..msg.sender_user_id_,text) then
+database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ then
@@ -4935,7 +4956,7 @@ local Texting = {
 "وفالله 😔💘",
 "كشخه برب 😉💘",
 "دغيره شبي هذ 😒",
-"عمري الحلوين ??💘",
+"عمري الحلوين 💘",
 }
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Tshake:Klesh:Id:Bot"..msg.chat_id_)
@@ -4971,13 +4992,14 @@ local get_id = get_id:gsub('#auto',TotalMsg)
 local get_id = get_id:gsub('#Description',Description) 
 local get_id = get_id:gsub('#game',Num_Games) 
 local get_id = get_id:gsub('#photos',Total_Photp) 
-send(msg.chat_id_, msg.id_,get_id) 
+send(msg.chat_id_, msg.id_,'['..get_id..']') 
 else
 send(msg.chat_id_, msg.id_,'\n*💳┇ايديك ~⪼ '..Id..'\n🎫┇معرفك ~⪼* ['..UserName_User..']*\n👨‍✈️┇رتبتك ~⪼ '..Status_Gps..'\n📨┇رسائلك ~⪼ '..NumMsg..'\n📧┇السحكات ~⪼ '..message_edit..' \n⌨️┇تتفاعلك ~⪼ '..TotalMsg..'\n💎┇ مجوهراتك ~⪼ '..Num_Games..'*') 
 end
 end
 end,nil)   
 end,nil)   
+end
 end
 if text and text:match('^تنظيف (%d+)$') and Addictive(msg) then    
 local Number = tonumber(text:match('^تنظيف (%d+)$')) 
@@ -5012,7 +5034,7 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'Tshake:message_edit'..msg.chat_id_..data.id_) or 0
 local Num_Games = database:get(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..data.id_) or 0
 local Add_Mem = database:get(bot_id.."Tshake:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*🔘┇ايديه - '..Id..'\n📨┇رسائله - '..NumMsg..'\n📌┇معرفه - *'..UserName_User..'*\n📈┇تفاعله - '..TotalMsg..'\n🚸┇رتبته - '..Status_Gps..'\n⚡┇تعديلاته - '..message_edit..'\n💠┇جهاته - '..Add_Mem..'*') 
+send(msg.chat_id_, msg.id_,'*🔘┇ايديه - '..Id..'\n📨┇رسائله - '..NumMsg..'\n📌┇معرفه - *['..UserName_User..']*\n📈┇تفاعله - '..TotalMsg..'\n🚸┇رتبته - '..Status_Gps..'\n⚡┇تعديلاته - '..message_edit..'\n💠┇جهاته - '..Add_Mem..'*') 
 end,nil)   
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
@@ -5036,7 +5058,7 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'Tshake:message_edit'..msg.chat_id_..data.id_) or 0
 local Num_Games = database:get(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..data.id_) or 0
 local Add_Mem = database:get(bot_id.."Tshake:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*🔘┇ايديه - '..Id..'\n📨┇رسائله - '..NumMsg..'\n📌┇معرفه - *'..UserName_User..'*\n📈┇تفاعله - '..TotalMsg..'\n🚸┇رتبته - '..Status_Gps..'\n⚡┇تعديلاته - '..message_edit..'\n💠┇جهاته - '..Add_Mem..'*') 
+send(msg.chat_id_, msg.id_,'*🔘┇ايديه - '..Id..'\n📨┇رسائله - '..NumMsg..'\n📌┇معرفه - *['..UserName_User..']*\n📈┇تفاعله - '..TotalMsg..'\n🚸┇رتبته - '..Status_Gps..'\n⚡┇تعديلاته - '..message_edit..'\n💠┇جهاته - '..Add_Mem..'*') 
 end,nil)   
 else
 send(msg.chat_id_, msg.id_,'👤┇لا يوجد حساب بهاذا المعرف')
@@ -5823,13 +5845,22 @@ send(msg.chat_id_, msg.id_,"*📮┇ عذرا لا يوجد هاكذا ملف ف
 end
 return false
 end
-
 if text == "مسح جميع الملفات" and DevTshake(msg) then
 os.execute("rm -fr Tshake_Files/*")
 send(msg.chat_id_,msg.id_,"☑┇تم حذف جميع الملفات")
 return false
 end
-
+if text == 'نقل الاحصائيات' and DevTshake(msg) then
+local Users = database:smembers('tshake:'..bot_id.."userss")
+local Groups = database:smembers('tshake:'..bot_id..'groups') 
+for i = 1, #Groups do
+database:sadd(bot_id..'Tshake:Chek:Groups',Groups[i])  
+end
+for i = 1, #Users do
+database:sadd(bot_id..'Tshake:UsersBot',Users[i])  
+end
+send(msg.chat_id_, msg.id_,'👥┇تم نقل : '..#Groups..' كروب\n👤┇تم نقل : '..#Users..' مشترك \n🔘┇من التحديث القديم الى التحديث الجديد')
+end
 if text == 'حذف كليشه المطور' and DevTshake(msg) then
 database:del(bot_id..'Tshake:Text_Dev')
 send(msg.chat_id_, msg.id_,'☑┇ تم حذف كليشه المطور')
@@ -6673,6 +6704,11 @@ end --- Chat_Type = 'UserBot'
 end
 end
 function tdcli_update_callback(data)
+if data.ID == "UpdateChannel" then 
+if data.channel_.status_.ID == "ChatMemberStatusKicked" then 
+database:srem(bot_id..'Tshake:Chek:Groups','-100'..data.channel_.id_)  
+end
+end
 if (data.ID == "UpdateNewMessage") then
 local msg = data.message_
 local text = msg.content_.text_
@@ -6716,6 +6752,9 @@ DeleteMessage(msg.chat_id_,{[0] = msg.id_})
 return false
 end    
 end   
+if text and not database:sismember(bot_id..'Tshake:Spam:Group'..msg.sender_user_id_,text) then
+database:del(bot_id..'Tshake:Spam:Group'..msg.sender_user_id_) 
+end
 ------------------------------------------------------------------------
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
@@ -6772,7 +6811,7 @@ if NewCmmd then
 database:del(bot_id.."Tshake:Set:Cmd:Group:New1"..msg.chat_id_..":"..text)
 database:del(bot_id.."Tshake:Set:Cmd:Group:New"..msg.chat_id_)
 database:srem(bot_id.."Tshake:List:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"??┇تم ازالة الامر من المجموعه")  
+send(msg.chat_id_, msg.id_,"🔰┇تم ازالة الامر من المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"🔰┇لا يوجد امر بهاذا الاسم تاكد من الامر واعد المحاوله")  
 end
@@ -6908,11 +6947,8 @@ return false
 end
 end
 end
-------------------------------------------------------------------------
-
 end,nil)
 ------------------------------------------------------------------------
-elseif (data.ID == "UpdateOption" and data.name_ == "my_id") then;CleangGroups()
 elseif (data.ID == "UpdateMessageSendSucceeded") then
 local msg = data.message_
 local text = msg.content_.text_
@@ -6948,6 +6984,30 @@ tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100'
 end
 end
 end
-
 end
+if (data.ID == "UpdateOption" and data.value_.value_ == "Ready") then
+print('\27[30;32m»» يرجى الاننتضار لحين تنظيف المجموعات الوهميه ««\n\27[1;37m')
+local list = database:smembers(bot_id..'Tshake:UsersBot')  
+for k,v in pairs(list) do 
+tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data) end,nil) 
+end 
+local list = database:smembers(bot_id..'Tshake:Chek:Groups') 
+for k,v in pairs(list) do 
+tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data)
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
+tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=v,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
+database:srem(bot_id..'Tshake:Chek:Groups',v)  
 end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
+database:srem(bot_id..'Tshake:Chek:Groups',v)  
+end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
+database:srem(bot_id..'Tshake:Chek:Groups',v)  
+end
+if data and data.code_ and data.code_ == 400 then
+database:srem(bot_id..'Tshake:Chek:Groups',v)  
+end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusEditor" then
+database:sadd(bot_id..'Tshake:Chek:Groups',v)  
+end end,nil)
+end;CleangGroups();end;end
