@@ -50,5 +50,5 @@ rm -rf luarocks*
 cd Tshake
 rm -rf luarocks*
 lua start.lua
-lua start.lua
+
 
