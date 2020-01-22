@@ -5869,18 +5869,18 @@ database:del(bot_id..'Tshake:Text_Dev')
 send(msg.chat_id_, msg.id_,'☑┇ تم حذف كليشه المطور')
 end
 if text == 'وضع كليشه المطور' and DevTshake(msg) then
-database:set(bot_id..'Tshake:Set:Text_Dev'..msg.chat_id_,true)
+database:set(bot_id..'Tshake:Set:Text_Dev'..msg.chat_id_..':'..msg.sender_user_id_,true)
 send(msg.chat_id_,msg.id_,'📫┇ ارسل الكليشه الان')
 return false
 end
-if text and database:get(bot_id..'Tshake:Set:Text_Dev'..msg.chat_id_) then
+if text and database:get(bot_id..'Tshake:Set:Text_Dev'..msg.chat_id_..':'..msg.sender_user_id_) then
 if text == 'الغاء' then 
-database:del(bot_id..'Tshake:Set:Text_Dev'..msg.chat_id_)
+database:del(bot_id..'Tshake:Set:Text_Dev'..msg.chat_id_..':'..msg.sender_user_id_)
 send(msg.chat_id_,msg.id_,'🔖┇تم الغاء حفظ كليشة المطور')
 return false
 end
 database:set(bot_id..'Tshake:Text_Dev',text)
-database:del(bot_id..'Tshake:Set:Text_Dev'..msg.chat_id_)
+database:del(bot_id..'Tshake:Set:Text_Dev'..msg.chat_id_..':'..msg.sender_user_id_)
 send(msg.chat_id_,msg.id_,'🔰┇تم حفظ كليشة المطور')
 return false
 end
@@ -6176,7 +6176,7 @@ end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Tshake:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'📮┇المجموعه مفعله سابقا ')
+send(msg.chat_id_, msg.id_,'??┇المجموعه مفعله سابقا ')
 else
 Reply_Status(msg,result.id_,'reply_Add','☑┇تم تفعيل المجموعه ~ '..chat.title_..'')
 database:sadd(bot_id..'Tshake:Chek:Groups',msg.chat_id_)
