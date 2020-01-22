@@ -5463,6 +5463,7 @@ local Text = '📨┇عدد رسائلك هنا *~ '..nummsg..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'مسح رسائلي' then
+database:del(bot_id..'Tshake:messageUser'..msg.chat_id_..':'..msg.sender_user_id_)
 local Text = '☑┇تم مسح جميع رسائلك '
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -5472,6 +5473,7 @@ local Text = '✏┇عدد التعديلات هنا *~ '..edit..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' then
+database:del(bot_id..'Tshake:message_edit'..msg.chat_id_..':'..msg.sender_user_id_)
 local Text = '☑┇تم مسح جميع تعديلاتك '
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -5481,6 +5483,7 @@ local Text = '👥┇عدد جهاتك المضافه هنا *~ '..addmem..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'مسح جهاتي' then
+database:del(bot_id..'Tshake:Add:Memp'..msg.chat_id_..':'..msg.sender_user_id_)
 local Text = '☑┇تم مسح جميع جهاتك المضافه '
 send(msg.chat_id_, msg.id_,Text) 
 end
