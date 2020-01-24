@@ -5853,7 +5853,7 @@ os.execute("rm -fr Tshake_Files/*")
 send(msg.chat_id_,msg.id_,"☑┇تم حذف جميع الملفات")
 return false
 end
-if text == 'نقل الاحصائيات' and DevTeKToK(msg) then
+if text == 'نقل الاحصائيات' and DevTshake(msg) then
 local Users = database:smembers('tshake:'..bot_id.."userss")
 local Groups = database:smembers('tshake:'..bot_id..'groups') 
 for i = 1, #Groups do
