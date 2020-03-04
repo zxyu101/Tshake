@@ -6323,6 +6323,8 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
+database:set(bot_id.."Tshake:Private:Group:Link"..msg.chat_id_,LinkGp) 
+
 Text = '🔖┇تم تعطيل مجموعه جديده\n'..
 '\n🔘┇بواسطة ~ '..Name..''..
 '\n🔧┇ايدي المجموعه ~ `'..IdChat..'`'..
