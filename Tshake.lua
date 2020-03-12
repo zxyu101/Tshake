@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,545906637}
+List_Sudos = {Id_Sudo,920489256}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -19,16 +19,16 @@ print("\27[34m"..[[
 
  /$$$$$$$$        /$$                 /$$                
 |__  $$__/       | $$                | $$                
-   | $$  /$$$$$$$| $$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
-   | $$ /$$_____/| $$__  $$ |____  $$| $$  /$$/ /$$__  $$
-   | $$|  $$$$$$ | $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
-   | $$ \____  $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
-   | $$ /$$$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
-   |__/|_______/ |__/  |__/ \_______/|__/  \__/ \_______/
+   | $$  /$$$$$$$| $$$$$$$   /$$$$$$ | $$   /$$ /
+   | $$ /$$_____/| $$__  $$ |____  $$| $$  /$$/ 
+   | $$|  $$$$$$ | $$  \ $$  /$$$$$$$| $$$$$$/ 
+   | $$ \____  $$| $$  | $$ /$$__  $$| $$_  $$ /
+   | $$ /$$$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$/
+   |__/|_______/ |__/  |__/ \_______/|__/  \__/ 
                                                                                                                                                                          
 >> CH > @TSHAKETEAM
->> CH > @ZX_XX 
->> DEVELOPER > @VVWVV
+>> CH > @Drag0_n 
+>> DEVELOPER > @wl_ww
 ]].."\27[m")
 
 io.popen("mkdir Tshake_Files")
@@ -5724,8 +5724,8 @@ if text == ("تحديث السورس") and DevTshake(msg) then
 send(msg.chat_id_,msg.id_,'☑┇تم التحديث')
 os.execute('rm -rf Tshake.lua')
 os.execute('rm -rf start.lua')
-download_to_file('https://raw.githubusercontent.com/tshakeabas/Tshake/master/Tshake.lua', 'Tshake.lua') 
-download_to_file('https://raw.githubusercontent.com/tshakeabas/Tshake/master/start.lua', 'start.lua') 
+download_to_file('https://github.com/zxyu101/Tshake/blob/master/Tshake.lua', 'Tshake.lua') 
+download_to_file('https://github.com/zxyu101/Tshake/blob/master/start.lua', 'start.lua') 
 dofile('Tshake.lua')  
 return false
 end
@@ -6778,8 +6778,8 @@ if text == "تحديث السورس 📥" then
 send(msg.chat_id_,msg.id_,'☑┇تم التحديث')
 os.execute('rm -rf Tshake.lua')
 os.execute('rm -rf start.lua')
-download_to_file('https://raw.githubusercontent.com/tshakeabas/Tshake/master/Tshake.lua', 'Tshake.lua') 
-download_to_file('https://raw.githubusercontent.com/tshakeabas/Tshake/master/start.lua', 'start.lua') 
+download_to_file('https://github.com/zxyu101/Tshake/blob/master/Tshake.lua', 'Tshake.lua') 
+download_to_file('https://github.com/zxyu101/Tshake/blob/master/start.lua', 'start.lua') 
 dofile('Tshake.lua')  
 return false
 end
